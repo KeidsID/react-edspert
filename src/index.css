@@ -4,9 +4,9 @@
 
 @layer base {
   nav a {
-    @apply hover:text-[#ff6161];
+    @apply hover:text-[#ff6161] hover:border-b-2 hover:border-b-[#ff6161];
   }
   button {
-    @apply bg-[#ff6161] px-6 py-3 rounded-full hover:bg-[#2b5792] focus:outline-none focus:ring focus:ring-[#cc4d4d];
+    @apply bg-[#ff6161] px-6 py-3 rounded-full hover:bg-[#2b5792] focus:outline-none focus:ring focus:ring-[#4184de];
   }
 }
