@@ -1,4 +1,18 @@
+import { useState, useEffect } from "react";
+
 const AppBar = () => {
+  const [isScrollOnTop, setIsScrollOnTop] = useState(true);
+
+  const scrollHandler = () => setIsScrollOnTop(window.scrollY <= 20);
+
+  useEffect(() => {
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  });
+
   const navs = [
     { link: "#", title: "Program" },
     { link: "#", title: "Bidang Ilmu" },
@@ -6,8 +20,12 @@ const AppBar = () => {
   ];
 
   return (
-    <header className="sticky top-0 flex justify-between items-center bg-[#152A46] text-white px-8 sm:px-16 py-8">
-      <h6 className="text-xl font-bold mr-8">LOGO</h6>
+    <header
+      className={`sticky top-0 flex justify-between items-center bg-primary px-page py-8 ${
+        isScrollOnTop ? "" : "shadow-xl"
+      }`}
+    >
+      <h5 className="mr-8">LOGO</h5>
       <div id="actions" className="flex items-center">
         <nav className="flex">
           {navs.map((e, i) => (

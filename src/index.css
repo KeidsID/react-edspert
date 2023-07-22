@@ -3,10 +3,28 @@
 @tailwind utilities;
 
 @layer base {
+  h3 {
+    @apply text-5xl;
+  }
+  h5 {
+    @apply text-xl font-bold;
+  }
+  h6 {
+    @apply text-lg font-bold;
+  }
   nav a {
     @apply hover:text-[#ff6161] hover:border-b-2 hover:border-b-[#ff6161];
   }
   button {
     @apply bg-[#ff6161] px-6 py-3 rounded-full hover:bg-[#2b5792] focus:outline-none focus:ring focus:ring-[#4184de];
+  }
+}
+
+@layer utilities {
+  .px-page {
+    @apply px-8 sm:px-16;
+  }
+  .bg-primary {
+    @apply bg-[#152a46] text-white;
   }
 }

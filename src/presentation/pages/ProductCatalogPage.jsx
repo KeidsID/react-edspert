@@ -1,6 +1,6 @@
 import AppBar from "../components/AppBar";
-
-import GirlPointingHeadlineImage from "../../assets/images/girl-pointing.png";
+import ProductCard from "../components/ProductCard";
+import ProductCatalogHeadline from "../components/ProductCatalogHeadline";
 
 const ProductCatalogPage = () => {
   const products = [
@@ -22,7 +22,7 @@ const ProductCatalogPage = () => {
       batch: new Date("2023-07-13"),
       mentors: ["Fikri Razzaq Arasyid", "Fadil Nugraha Adithama"],
       price: 998000,
-      discount: 65,
+      discount: 70,
     },
     {
       title: "Intensive Bootcamp IoT - for IoT Engineering Batch 15",
@@ -30,7 +30,7 @@ const ProductCatalogPage = () => {
       batch: new Date("2023-07-13"),
       mentors: ["Ahmad Sony Alfathani", "Fariz Alemuda"],
       price: 998000,
-      discount: 65,
+      discount: 60,
     },
     {
       title: "Intensive Bootcamp ReactJS - for Front End Development Batch 8",
@@ -38,7 +38,7 @@ const ProductCatalogPage = () => {
       batch: new Date("2023-07-13"),
       mentors: ["Ardi Widyanto Saputra", "Ade Armyatna Yusfantri"],
       price: 998000,
-      discount: 65,
+      discount: 75,
     },
   ];
 
@@ -46,30 +46,13 @@ const ProductCatalogPage = () => {
     <>
       <AppBar />
       <main>
+        <ProductCatalogHeadline />
         <section
-          id="headline"
-          className="flex bg-[#152a46] text-white p-8 sm:p-16 pb-0 sm:pb-0"
+          id="products"
+          className="grid gap-5 grid-cols-3 justify-center items-center px-page my-8"
         >
-          <div id="text" className="w-1/2">
-            <h6 className="text-5xl">Jadi expert bersama edspert.id</h6>
-            <br />
-            <p className="text-xl text-slate-300">
-              Tingkatkan skill dan pengetahuan bersama para mentor terbaik di
-              bidangnya, untuk siapkan karir impian anda.
-            </p>
-          </div>
-          <div id="deco" className="ml-24">
-            <img src={GirlPointingHeadlineImage} alt="girl pointing headline" />
-          </div>
-        </section>
-        <section id="products" className="flex">
           {products.map((e, i) => (
-            <div
-              key={`product-${i}`}
-              className="w-80 m-8 bg-sky-800 text-white"
-            >
-              <h6>{e.title}</h6>
-            </div>
+            <ProductCard key={i} product={e} />
           ))}
         </section>
       </main>
