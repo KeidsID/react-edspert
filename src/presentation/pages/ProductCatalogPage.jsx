@@ -1,4 +1,5 @@
 import AppBar from "../components/AppBar";
+import PageFooter from "../components/PageFooter";
 import ProductCard from "../components/ProductCard";
 import ProductCatalogHeadline from "../components/ProductCatalogHeadline";
 
@@ -45,17 +46,18 @@ const ProductCatalogPage = () => {
   return (
     <>
       <AppBar />
-      <main>
+      <main className="bg-secondary">
         <ProductCatalogHeadline />
         <section
           id="products"
-          className="grid gap-5 grid-cols-3 justify-center items-center px-page my-8"
+          className="grid gap-8 gap-y-16 grid-cols-3 justify-center items-center px-page py-16"
         >
           {products.map((e, i) => (
             <ProductCard key={i} product={e} />
           ))}
         </section>
       </main>
+      <PageFooter />
     </>
   );
 };

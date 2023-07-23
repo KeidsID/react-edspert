@@ -18,7 +18,7 @@ import DummyFigure from "../../assets/images/dummy-card-figure.svg";
  */
 const ProductCard = ({ product }) => {
   return (
-    <article id="product-card" className="shadow-md rounded-xl cursor-pointer">
+    <article id="product-card" className="bg-white shadow-md rounded-xl cursor-pointer">
       <figure className="flex flex-row bg-primary rounded-t-xl px-8 pt-4">
         <img src={DummyFigure} alt="dummy-figure" />
         <figcaption className="pl-4 py-2">
