@@ -21,7 +21,7 @@ const AppBar = () => {
 
   return (
     <header
-      className={`sticky top-0 flex justify-between items-center bg-primary px-page py-8 ${
+      className={`sticky top-0 z-50 flex justify-between items-center bg-primary px-page py-8 ${
         isScrollOnTop ? "" : "shadow-xl"
       }`}
     >

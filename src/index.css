@@ -33,4 +33,23 @@
   .bg-secondary {
     @apply bg-[#eff4fa];
   }
+  .triangle-br {
+    width: 0;
+    height: 0;
+    border-bottom: 200px solid #ffcd29;
+    border-left: 200px solid transparent;
+  }
+  .triangle-bl {
+    width: 0;
+    height: 0;
+    border-bottom: 190px solid #235597;
+    border-right: 190px solid transparent;
+  }
+
+  .circle-1\/4 {
+    width: 400px;
+    height: 400px;
+    background-color: #f1f7fd;
+    border-radius: 9999px 0 0 0;
+  }
 }

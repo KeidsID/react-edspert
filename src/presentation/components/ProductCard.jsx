@@ -18,7 +18,10 @@ import DummyFigure from "../../assets/images/dummy-card-figure.svg";
  */
 const ProductCard = ({ product }) => {
   return (
-    <article id="product-card" className="bg-white shadow-md rounded-xl cursor-pointer">
+    <article
+      id="product-card"
+      className="bg-white shadow-md rounded-xl cursor-pointer"
+    >
       <figure className="flex flex-row bg-primary rounded-t-xl px-8 pt-4">
         <img src={DummyFigure} alt="dummy-figure" />
         <figcaption className="pl-4 py-2">
@@ -26,8 +29,10 @@ const ProductCard = ({ product }) => {
           <h5 className="line-clamp-2">{product.subtitle}</h5>
         </figcaption>
       </figure>
+
       <section className="p-4">
         <h5 className="line-clamp-2">{product.title}</h5>
+
         <table className="my-4">
           <tr className="text-sm">
             <th className="font-normal text-start text-black/60">Batch</th>
@@ -42,6 +47,7 @@ const ProductCard = ({ product }) => {
             </td>
           </tr>
         </table>
+
         <div id="price" className="flex flex-row justify-end">
           <p className="text-sm text-black/60 line-through">
             {utils.currencyFormatter.format(product.price)}
