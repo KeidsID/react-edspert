@@ -1,5 +1,5 @@
-import AppBar from "../components/AppBar";
-import PageFooter from "../components/PageFooter";
+import AppBar from "../components/common/AppBar";
+import PageFooter from "../components/common/PageFooter";
 import ProductCard from "../components/ProductCard";
 import ProductCatalogHeadline from "../components/ProductCatalogHeadline";
 

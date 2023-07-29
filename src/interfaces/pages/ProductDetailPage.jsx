@@ -1,7 +1,7 @@
 import { useLoaderData } from "react-router-dom";
 
-import AppBar from "../components/AppBar";
-import PageFooter from "../components/PageFooter";
+import AppBar from "../components/common/AppBar";
+import PageFooter from "../components/common/PageFooter";
 
 const ProductDetailPage = () => {
   const routeLoader = useLoaderData();
