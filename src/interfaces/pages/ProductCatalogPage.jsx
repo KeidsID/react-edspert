@@ -6,6 +6,7 @@ import ProductCatalogHeadline from "../components/ProductCatalogHeadline";
 const ProductCatalogPage = () => {
   const products = [
     {
+      id: "product-1",
       title: "Intensive Bootcamp Microsoft Excel - for Data Analysis Batch 13",
       subtitle: "Microsoft Excel - for Data Analysis",
       batch: new Date("2023-08-09"),
@@ -18,6 +19,7 @@ const ProductCatalogPage = () => {
       discount: 65,
     },
     {
+      id: "product-2",
       title: "Intensive Bootcamp Flutter - for Mobile Development Batch 17",
       subtitle: "Flutter - for Mobile Development",
       batch: new Date("2023-07-13"),
@@ -26,6 +28,7 @@ const ProductCatalogPage = () => {
       discount: 70,
     },
     {
+      id: "product-3",
       title: "Intensive Bootcamp IoT - for IoT Engineering Batch 15",
       subtitle: "IoT for IoT Engineering",
       batch: new Date("2023-07-13"),
@@ -34,6 +37,7 @@ const ProductCatalogPage = () => {
       discount: 60,
     },
     {
+      id: "product-4",
       title: "Intensive Bootcamp ReactJS - for Front End Development Batch 8",
       subtitle: "ReactJS - for Front End Development",
       batch: new Date("2023-07-13"),
