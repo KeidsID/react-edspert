@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { useLoaderData } from "react-router-dom";
 
 import utils from "../../common/utils";
@@ -14,21 +14,48 @@ const ProductDetailPage = () => {
    */
   const product = useLoaderData();
 
-  const navs = [
-    { link: "#Materi", title: "Materi" },
-    { link: "#Fasilitas", title: "Fasilitas" },
-  ];
+  const defaultFacilities = useMemo(
+    () => [
+      { title: "E-Sertifikat" },
+      { title: "Portofolio" },
+      { title: "Job Connector" },
+      { title: "Career Development" },
+    ],
+    []
+  );
 
-  const defaultFacilities = [
-    { title: "E-Sertifikat" },
-    { title: "Portofolio" },
-    { title: "Job Connector" },
-    { title: "Career Development" },
-  ];
+  const navs = useMemo(
+    () => [
+      { link: "#Materi", title: "Materi", contents: product.studyMaterials },
+      { link: "#Fasilitas", title: "Fasilitas", contents: defaultFacilities },
+    ],
+    [product.studyMaterials, defaultFacilities]
+  );
 
   const orderButton = <button className="w-56 mx-4">Daftar Kelas</button>;
 
   const [navIndex, setNavIndex] = useState(0);
+
+  useEffect(() => {
+    const scrollHandler = () => {
+      navs.forEach((nav, i) => {
+        const element = document.getElementById(nav.title);
+        const rect = element.getBoundingClientRect();
+
+        console.log(`card-${nav.title}-y: ${rect.y}`);
+
+        if (rect.y >= 100 && rect.y <= 300) {
+          setNavIndex(i);
+        }
+      });
+    };
+
+    window.addEventListener("scroll", scrollHandler);
+
+    return () => {
+      window.removeEventListener("scroll", scrollHandler);
+    };
+  }, [navs]);
 
   return (
     <>
@@ -38,20 +65,21 @@ const ProductDetailPage = () => {
         <article className="flex flex-row gap-8 px-page py-16">
           <aside className="sticky top-40 z-40 flex flex-col card h-min py-4">
             <nav className="flex flex-col">
-              {navs.map((e, i) => (
+              {navs.map((nav, i) => (
                 <a
                   key={i}
-                  href={e.link}
+                  id={`nav-${nav.title}`}
+                  href={nav.link}
                   onClick={() => {
                     setNavIndex(i);
                   }}
                   className={`px-16 py-2 ${
                     navIndex == i
-                      ? "bg-blue-100 border-r-4 border-r-blue-700"
+                      ? "bg-blue-50 text-blue-700 border-r-4 border-r-blue-700"
                       : ""
                   }`}
                 >
-                  {e.title}
+                  {nav.title}
                 </a>
               ))}
             </nav>
@@ -70,14 +98,13 @@ const ProductDetailPage = () => {
             {orderButton}
           </aside>
           <section className="flex flex-1 flex-col gap-8">
-            <ProductDetailCard
-              header="Materi"
-              contents={product.studyMaterials}
-            />
-            <ProductDetailCard
-              header="Fasilitas"
-              contents={defaultFacilities}
-            />
+            {navs.map((nav, i) => (
+              <ProductDetailCard
+                key={i}
+                header={nav.title}
+                contents={nav.contents}
+              />
+            ))}
           </section>
         </article>
         <article className="flex flex-col gap-16 items-center py-24 bg-header">
