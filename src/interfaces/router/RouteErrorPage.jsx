@@ -5,7 +5,7 @@ export default function RouteErrorPage() {
   console.error(error);
 
   return (
-    <main className="w-screen h-screen flex flex-col justify-center items-center bg-secondary">
+    <main className="w-screen h-screen flex flex-col justify-center items-center">
       <h3>{error.status || 500}</h3>
       <h5>{error.statusText || 'Internal Server Error'}</h5>
       <p>Sorry, an unexpected error has occurred.</p>

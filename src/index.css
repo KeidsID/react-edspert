@@ -3,8 +3,14 @@
 @tailwind utilities;
 
 @layer base {
+  h2 {
+    @apply text-6xl font-semibold;
+  }
   h3 {
     @apply text-5xl;
+  }
+  h4 {
+    @apply text-2xl font-bold;
   }
   h5 {
     @apply text-xl font-bold;
@@ -12,27 +18,39 @@
   h6 {
     @apply text-lg font-bold;
   }
+
+  header {
+    @apply bg-[#152a46] text-white;
+  }
   header a {
     @apply hover:text-[#ff6161] hover:underline;
+  }
+
+  body {
+    @apply bg-[#eff4fa];
+  }
+
+  footer {
+    @apply bg-white;
   }
   footer a {
     @apply hover:text-[#20406c] hover:underline;
   }
+
   button {
-    @apply bg-[#ff6161] px-6 py-3 rounded-full hover:bg-[#2b5792] focus:outline-none focus:ring focus:ring-[#4184de];
+    @apply bg-[#ffcd29] text-white font-semibold px-6 py-3 rounded-full hover:bg-orange-500 focus:outline-none focus:ring focus:ring-orange-300;
+  }
+
+  header button {
+    @apply bg-[#ff6161] hover:bg-[#2b5792] focus:outline-none focus:ring focus:ring-[#4184de];
   }
 }
 
-@layer utilities {
-  .px-page {
-    @apply px-8 sm:px-16;
+@layer components {
+  .card {
+    @apply bg-white shadow-md rounded-xl;
   }
-  .bg-primary {
-    @apply bg-[#152a46] text-white;
-  }
-  .bg-secondary {
-    @apply bg-[#eff4fa];
-  }
+
   .triangle-br {
     width: 0;
     height: 0;
@@ -51,5 +69,20 @@
     height: 400px;
     background-color: #f1f7fd;
     border-radius: 9999px 0 0 0;
+  }
+}
+
+@layer utilities {
+  .px-page {
+    @apply px-8 sm:px-16;
+  }
+  .bg-header {
+    @apply bg-[#152a46] text-white;
+  }
+  .bg-main {
+    @apply bg-[#eff4fa];
+  }
+  .bg-footer {
+    @apply bg-white;
   }
 }

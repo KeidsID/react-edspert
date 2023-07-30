@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const PageFooter = () => {
   const navs = [
     {
@@ -45,9 +47,9 @@ const PageFooter = () => {
               <section key={i} className="flex flex-col gap-3">
                 <h6 className="text-black">{e.header}</h6>
                 {e.navs.map((e, i) => (
-                  <a key={i} href={e.link}>
+                  <Link key={i} to={e.link}>
                     {e.title}
-                  </a>
+                  </Link>
                 ))}
               </section>
             ))}

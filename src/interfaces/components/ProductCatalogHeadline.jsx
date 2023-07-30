@@ -2,7 +2,7 @@ import GirlPointingHeadlineImage from "../../assets/images/girl-pointing.svg";
 
 const ProductCatalogHeadline = () => {
   return (
-    <article id="headline" className="flex flex-row bg-primary px-page pt-8">
+    <article id="headline" className="flex flex-row bg-header px-page pt-8">
       <section id="text" className="flex flex-col basis-3/4">
         <h3>Jadi expert bersama edspert.id</h3>
         <br />

@@ -7,16 +7,15 @@ import { Link } from "react-router-dom";
 /**
  * @param {object} props
  * @param {import('../../core/entities/Product.js').default} props.product
- * @returns
  */
 const ProductCard = ({ product }) => {
   return (
     <Link to={`products/${product.id}`}>
       <article
         id="product-card"
-        className="bg-white shadow-md rounded-xl cursor-pointer"
+        className="card cursor-pointer"
       >
-        <figure className="flex flex-row bg-primary rounded-t-xl px-8 pt-4">
+        <figure className="flex flex-row bg-header rounded-t-xl px-8 pt-4">
           <img src={DummyFigure} alt="dummy-figure" />
           <figcaption className="pl-4 py-2">
             <h6 className="text-[#ffcd29]">Intensive Bootcamp</h6>
