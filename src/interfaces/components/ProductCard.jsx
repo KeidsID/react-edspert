@@ -5,17 +5,8 @@ import DummyFigure from "../../assets/images/dummy-card-figure.svg";
 import { Link } from "react-router-dom";
 
 /**
- * @typedef {object} Product
- * @property {string} id
- * @property {string} title
- * @property {string} subtitle
- * @property {Date} batch
- * @property {string[]} mentors
- * @property {number} price
- * @property {number} discount
- *
  * @param {object} props
- * @param {Product} props.product
+ * @param {import('../../core/entities/Product.js').default} props.product
  * @returns
  */
 const ProductCard = ({ product }) => {
@@ -46,7 +37,7 @@ const ProductCard = ({ product }) => {
             <tr className="text-sm">
               <th className="font-normal text-start text-black/60">Mentors</th>
               <td className="pl-3 text-black line-clamp-1">
-                {product.mentors.join(", ")}
+                {product.mentors.map((e) => e.name).join(", ")}
               </td>
             </tr>
           </table>
@@ -73,7 +64,9 @@ ProductCard.propTypes = {
     title: PropTypes.string,
     subtitle: PropTypes.string,
     batch: PropTypes.instanceOf(Date),
-    mentors: PropTypes.arrayOf(PropTypes.string),
+    mentors: PropTypes.arrayOf(
+      PropTypes.shape({ name: PropTypes.string, title: PropTypes.string })
+    ),
     price: PropTypes.number,
     discount: PropTypes.number,
   }).isRequired,
